@@ -1,0 +1,45 @@
+{
+    // Random seed for reproducibility
+    "rnd_seed": 24,
+    
+    // Title for the figure that will be generated
+    "fig_title": "Model Comparision",
+    
+    // Input source directory
+    "inp_src": "../Input/prep/ALL2/",
+    
+    // Output source directory
+    "out_src": "../Output/Script1/Results/ALL2/",
+    
+    // Result file name (without extension)
+    "res_file": "scoring_bootstrap_sum_svmrfe_manual_25genes",
+    
+    // Column name for the categorical variable (labels)
+    "cat_col": "labels",
+    
+    // Name of the first category
+    "cat1": "non-relapse",
+    
+    // Name of the second category
+    "cat2": "relapse",
+    
+    // File name of the experiment data (CSV format)
+    "exp_fname": "../Input/prep/ALL2/ALL2_data.csv",
+    
+    // File name of the gene list (CSV format)
+    "gene_fname": "../Input/prep/ALL2/gene_list.csv",
+    
+    // Class distribution in the dataset
+    "class_dist": {
+        // Number of samples in the 'relapse' category
+        "relapse": 65,
+        // Number of samples in the 'non-relapse' category
+        "non-relapse": 35
+    },
+    
+    // Number of features (genes) in the dataset
+    "Num_F": 12625,
+    
+    // Number of samples in the dataset
+    "Num_S": 100
+}

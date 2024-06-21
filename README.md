@@ -25,6 +25,7 @@ Please download the gene expression dataset from the Gene Expression Omnibus (GE
 
 ## Example Workflow (For one dataset)
 * Clone the Repository:
+  
 ```git clone https://github.com/samrat-lab/FLASH.git```
 Prepare config file for each dataset using [Sample file](config_ALL2.json) and set directory to desired location.
 * Sampling and t-test to generate sampled t-test matrix

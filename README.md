@@ -15,16 +15,14 @@ Please download your gene expression dataset from GEO. Store the data in a DataF
 * Numpy
 * scikit-learn
 * Matplotlib
-  
+  To install the packages use command ``` pip install package-name ```
 ### Directory structure
 * code directory (example: exp1)
 * Input/raw/exp1
 * Input/prep/exp1
 * Output/exp1/Results/
-You can install these packages using pip:
-```sh
-pip install pandas numpy scikit-learn matplotlib
-```
+
+
 ## Example Workflow (For one dataset)
 * Clone the Repository:
   ```git clone https://github.com/samrat-lab/FLASH.git```

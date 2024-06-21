@@ -26,16 +26,21 @@ Please download the gene expression dataset from the Gene Expression Omnibus (GE
 ## Example Workflow (For one dataset)
 * Clone the Repository:
   
-```git clone https://github.com/samrat-lab/FLASH.git```
-Prepare config file for each dataset using [Sample file](config_ALL2.json) and set directory to desired location.
+  ```git clone https://github.com/samrat-lab/FLASH.git```
+  Prepare config file for each dataset using [Sample file](config_ALL2.json) and set directory to desired location.
 * Sampling and t-test to generate sampled t-test matrix
+  
   Use the config file to obtain sampled t-test on a specific dataset [get_bs_ttest](get_bs_ttest.py).
 * Calculating the score using sampled t-test matrix
+  
   Use the matrix generated to calcuate the average value of significant feature and apply a threshold to filter important subset.
 * Performing recurive feature elimination on filtered feature set
+  
   Use function [perform_rfe](perform_rfe.py) to remove less important feature iteratively.
 * Asses predictive performance of FLASH features
+  
   Compare multiple ML models to obtain the preditive performance of FLASH features using [compare_ml_models.py](compare_ml_models)
 * Repeat for other dataset
+  
   Creating config file for other datasets and run the above steps in loop.
 

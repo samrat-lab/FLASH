@@ -1,25 +1,42 @@
-# FLASH-description
-FLASH is a feature selection method for gene expression dataset. The full form of flash is  Feature learning augmented with sampling and heuristics.
+# FLASH Algorithm
 
-# Design
-This repository contains code in the form of a python scripts, which will guide you step by step to complete the specific exercise/task. The results are saved as per the directory structure mentioned below, but the user can choose to set their own preferences. The saved results are used in subsequent executions to extend the current results for the next step.
+## Overview
+FLASH (Feature Learning Augmented with Sampling and Heuristics) is a feature selection method designed for gene expression datasets. It aims to identify the most relevant features (genes) that contribute to distinguishing different classes in the dataset, thus improving the performance of machine learning models.
 
-## Dataset 
-Please download the dataset from any repository, use a dataframe to store the data, and keep the last columns as class **Label**
+## Design
+This repository contains Python scripts that guide you step by step through the process of feature selection, model fitting, and comparison. The results are saved according to the directory structure mentioned below, but users can customize the directory paths as needed by customizing the config file. The saved results from each step are used in subsequent steps to build upon the current results and move forward in the analysis. Please follow  [workflow notebook](workflow.ipynb) for running the scripts.
 
-## Usage
-### Major packages required
+## Dataset
+Please download your gene expression dataset from GEO. Store the data in a DataFrame format, ensuring that the last column contains the class labels. Six dataset is available in data folder, which are not available on GEO.
+
+## Prerequisites
+### Major Packages Required
 * Pandas
 * Numpy
 * scikit-learn
 * Matplotlib
-
+  
 ### Directory structure
 * code directory (example: exp1)
 * Input/raw/exp1
 * Input/prep/exp1
 * Output/exp1/Results/
-### Prepare your own dataset before running experiments.
-* Use [Feature selection](Feature%20selection.ipynb) notebook to obtain the importance score of all the features and save it as a file.
-* Use [Curve Fitting](Model%20comparison.ipynb) notebook to find an optimal set of features from a score file (containing the scores of all the features).
-* Use [Model comparison](Model%20comparison.ipynb) notebook to compare various feature sets on multiple ML models to obtain the best-performing model and feature combination.
+You can install these packages using pip:
+```sh
+pip install pandas numpy scikit-learn matplotlib
+```
+## Example Workflow (For one dataset)
+* Clone the Repository:
+  ```git clone https://github.com/samrat-lab/FLASH.git```
+  Prepare config file for each dataset using [Sample file](config_ALL2.json) and set directory to desired location.
+* Sampling and t-test to generate sampled t-test matrix
+  Use the config file to obtain sampled t-test on a specific dataset [get_bs_ttest](get_bs_ttest.py).
+* Calculating the score using sampled t-test matrix
+  Use the matrix generated to calcuate the average value of significant feature and apply a threshold to filter important subset.
+* Performing recurive feature elimination on filtered feature set
+  Use function [perform_rfe](perform_rfe.py) to remove less important feature iteratively.
+* Asses predictive performance of FLASH features
+  Compare multiple ML models to obtain the preditive performance of FLASH features using [compare_ml_models.py](compare_ml_models)
+* Repeat for other dataset
+  Creating config file for other datasets and run the above steps in loop.
+
